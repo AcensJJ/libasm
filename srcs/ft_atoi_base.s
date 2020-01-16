@@ -124,16 +124,11 @@ _exit:
     ret
 
 _exit_error2:
-    mov		rax, 0
     pop		rbx
     pop		r10
 	pop		r15
     pop		r14
     pop		r13
-    pop		r12
-    pop		r9
-    pop		r8
-    ret
 
 _exitun:
     pop		r12
