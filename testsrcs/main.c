@@ -33,8 +33,8 @@ int		main(void)
 	t_list	*lst;
 	char 	*str3;
 	int 	i;
-	int 	fdread = open("testsrcs/lol", O_RDONLY);
-	int 	fdwrite = open("testsrcs/lol", O_WRONLY);
+	int 	fdread = open("testsrcs/main.h", O_RDONLY);
+	int 	fdwrite = open("testsrcs/main.h", O_WRONLY);
 	t_list	*temp;
 	
 	str3 = strdup("str");
