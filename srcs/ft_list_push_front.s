@@ -21,7 +21,7 @@ _push_front:
 	mov		r13, [r12]
 	mov		[rax + 0] , rsi
 	mov		[rax + 8] , r13
-	mov		r12, rax
+	mov		[r12], rax
 
 _exit:
 	pop		r13
