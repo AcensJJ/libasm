@@ -6,7 +6,7 @@
 /*   By: jacens <jacens@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/17 12:15:46 by jacens       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 17:29:57 by jacens      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 21:19:16 by jacens      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,33 +36,36 @@ int		main(void)
 	// int 	i;
 	// int 	fdread = open("test", O_RDONLY);
 	// int 	fdwrite = open("test", O_WRONLY);
-	// t_list	*temp;
+	t_list	*temp;
 	
+	dprintf(1, "strcmp : %i MOI\n", ft_strcmp("1", "2"));
+	dprintf(1, "strcmp : %i LUI\n", strcmp("2", "1"));
+
 	// dprintf(1, "strcmp : %i MOI\n", ft_strcmp("test", "text"));
 	// dprintf(1, "strcmp : %i LUI\n", strcmp("test", "text"));
 	// dprintf(1, "strcmp : %i MOI\n", ft_strcmp("text", "text"));
 	// dprintf(1, "strcmp : %i LUI\n", strcmp("text", "text"));
 	// dprintf(1, "strcmp : %i MOI\n", ft_strcmp("text", "test"));
 	// dprintf(1, "strcmp : %i LUI\n", strcmp("text", "test"));
-	str3 = ft_strdup("str");
-	str2 = malloc(4);
-	ft_strcpy(str2, str3);
-	dprintf(1, "str2 : %s has length = %zu\n", str2, ft_strlen(str2));
-	dprintf(1, "str3 : %s has length = %zu\n", str3, ft_strlen(str3));
+	str3 = ft_strdup("2");
+	// str2 = malloc(4);
+	// ft_strcpy(str2, str3);
+	// dprintf(1, "str2 : %s has length = %zu\n", str2, ft_strlen(str2));
+	// dprintf(1, "str3 : %s has length = %zu\n", str3, ft_strlen(str3));
 	// str2 = strdup("banana\n");
 	// dprintf(1, "str2 : %shas length = %zu\n", str2, ft_strlen(str2));
 	ft_list_push_front(&lst, (void *)str3);
-	dprintf(1, "DATA : %s\n",lst->data);
-	dprintf(1, "%p\n",lst);
-	str3 = strdup("str1");
+	// dprintf(1, "DATA : %s\n",lst->data);
+	// dprintf(1, "%p\n",lst);
+	str3 = strdup("1");
 	ft_list_push_front(&lst, (void *)str3);
-	dprintf(1, "DATA : %s\n",lst->data);
-	dprintf(1, "DATA next: %s\n",lst->next->data);
-	dprintf(1, "%p\n",lst);
-	str3 = strdup("str2");
+	// dprintf(1, "DATA : %s\n",lst->data);
+	// dprintf(1, "DATA next: %s\n",lst->next->data);
+	// dprintf(1, "%p\n",lst);
+	str3 = strdup("3");
 	ft_list_push_front(&lst, (void *)str3);
-	dprintf(1, "DATA : %s\n",lst->data);
-	dprintf(1, "%p\n",lst);
+	// dprintf(1, "DATA : %s\n",lst->data);
+	// dprintf(1, "%p\n",lst);
 	// str3 = strdup("str3");
 	// ft_list_push_front(&lst, (void *)str3);
 	// dprintf(1, "DATA : %s\n",lst->data);
@@ -76,14 +79,22 @@ int		main(void)
 	// dprintf(1, "DATA : %s\n",lst->data);
 	// dprintf(1, "%p\n",lst);
 	// dprintf(1, "number of maillon = %d\n", ft_list_size(lst));
+	dprintf(1, "AV\nDATA      1: %s\n",lst->data);
+	dprintf(1, "DATA next 2: %s\n",lst->next->data);
+	dprintf(1, "DATA next 3: %s\n",lst->next->next->data);
 	ft_list_sort(&lst, ft_strcmp);
+	dprintf(1, "\nAP\nDATA      1: %s\n",lst->data);
+	dprintf(1, "DATA next 2: %s\n",lst->next->data);
+	dprintf(1, "DATA next 3: %s\n",lst->next->next->data);
 	// dprintf(1,"\nSort lst");
 	// temp = lst;
-	// while (temp)
+	// while (temp->next)
 	// {
 	// 	dprintf(1, "\n%s",temp->data);
 	// 	temp = temp->next;
 	// }
+	// dprintf(1, "\n%s","ok");
+	// dprintf(1, "\n%s",temp->data);
 	// ft_list_remove_if(&lst,	"str4", ft_strcmp, balec);
 	// dprintf(1,"\n\nRemove str4");
 	// temp = lst;

@@ -26,14 +26,14 @@ _ft_list_push_front:
 
 _push_front:
 	mov		rsi, [rdi]
-	mov		[rax + 8] , rsi
+	mov		[rax + 8], rsi
 	mov		[rdi], rax
 	pop		rsp
 	leave
 	ret
 
 _push_front_null:
-	mov		[rax + 8] , byte 0
+	mov		[rax + 8], byte 0
 	mov		[rdi], rax
 	pop		rsp
 	leave

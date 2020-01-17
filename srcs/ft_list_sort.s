@@ -7,54 +7,93 @@ _ft_list_sort:
 	je		_exit_error
 	cmp		rsi, 0
 	je		_exit_error
-	push	r12			;list
+	cmp		[rdi], byte 0
+	je		_exit_error
+	push	r12					;list
     mov		r12, rdi
-	push	r13			;fnct
+	push	rdi
+	push	r13					;fnct
     mov		r13, rsi
-	push	r14			;tmp
+	push	r14					;tmp
 	mov		rdi, [r12]
-	mov		rsi, [r12 + 8]
-	push	r15			;bef_lst
-	cmp		rsi, 0
+	push	r15					;bef_lst
+	cmp		[rdi + 8], byte 0
 	je		_exit
+	mov		rsi, [rdi + 8]
+
 
 _loop_before:
+	mov		r14, [rdi]
+	push	rdi
+	mov		rdi, r14
+	mov		r14, [rsi]
+	push	rsi
+	mov		rsi, r14
 	call	r13
+	pop		rsi
+	pop		rdi
+	mov		r15, rdi
 	cmp		rax, 0
-	jge		_loop_after
+	jle		_loop_after
 
-_push_front:
+_push_front:						;bad
+	cmp		[rsi + 8], byte 0
+	je		_push_front_null_next
 	mov		r14, [rsi + 8]
 	mov		[rdi + 8], r14
 	mov		[rsi + 8], rdi
 	mov		[r12], rsi
 	mov		rdi, [rdi]
-	mov		r15, rdi
+	mov		rsi, [rdi + 8]
 	jmp		_loop_before
 
+_push_front_null_next:
+	mov		[rdi + 8], byte 0
+	mov		[rsi + 8], rdi
+	mov		[r12], rsi
+	mov		rdi, [rdi]
+	jmp		_exit
+
 _loop_after:
+	cmp		[rsi + 8], byte 0
+	je		_exit
 	mov		rdi, rsi
 	mov		rsi, [rsi + 8]
-	cmp		rsi, 0
-	je		_exit
+	mov		r14, [rdi]
+	push	rdi
+	mov		rdi, r14
+	mov		r14, [rsi]
+	push	rsi
+	mov		rsi, r14
 	call	r13
+	pop		rsi
+	pop		rdi
 	cmp		rax, 0
-	jl		_loop_swap
+	jg		_loop_swap
 	mov		r15, rdi
 	jmp		_loop_after
 
 _loop_swap:
-	mov		r14, [rsi + 8]
-	mov		[rdi + 8], r14
-	mov		[rsi + 8], rdi
-	mov		[r15 + 8], rsi
+	cmp		[rsi + 8], byte 0
+	je		_loop_swap_null_next
+	mov		r14, [rsi + 8] 		;tmp -> (next)
+	mov		[rdi + 8], r14		;actu->next->tmp
+	mov		[rsi + 8], rdi		;actu->next -> next->actu
+	mov		[r15 + 8], rsi		; av->next->actu->tmp
 
 _reset:
 	mov		rdi, [r12]
 	mov		rsi, [r12 + 8]
 	jmp		_loop_before
 
+_loop_swap_null_next:
+	mov		[rdi + 8], byte 0	; pas de next
+	mov		[rsi + 8], rdi		; next vers actu
+	mov		[r15 + 8], rsi		; av vers actu
+	jmp		_reset
+
 _exit:
+	pop		rdi
 	pop		r15
 	pop		r14
 	pop		r13

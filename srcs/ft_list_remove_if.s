@@ -13,6 +13,8 @@ _ft_list_remove_if:
 	je		_exit_error
 	cmp		rcx, 0		;free content
 	je		_exit_error
+	cmp		[rdi], byte 0
+	je		_exit_error
 	push	r12			;list
 	push	r13			;bef_lst
 	push	r14			;tmp
@@ -28,7 +30,7 @@ _push_front:
 	mov		r14, [rdi + 8]
 	mov		qword [rdi + 8], 0
 	call	rcx
-	call	_free;
+	call	_free
 	mov		rdi, r14
 	mov		[r12], r14
 
@@ -60,3 +62,5 @@ _exit:
 
 _exit_error:
 	ret
+
+	;if list = null car list 1 elem retiré
