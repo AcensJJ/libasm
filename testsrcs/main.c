@@ -6,7 +6,7 @@
 /*   By: jacens <jacens@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/17 12:15:46 by jacens       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 15:23:50 by jacens      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 17:29:57 by jacens      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,12 +27,12 @@ int		balec2(char *s1, char *s2)
 
 int		main(void)
 {
-	// char	*str;
-	// char	*str2;
+	char	*str;
+	char	*str2;
 	// char	*str4;
 	// char	*str5;
-	// t_list	*lst;
-	// char 	*str3;
+	t_list	*lst = NULL;
+	char 	*str3;
 	// int 	i;
 	// int 	fdread = open("test", O_RDONLY);
 	// int 	fdwrite = open("test", O_WRONLY);
@@ -44,26 +44,25 @@ int		main(void)
 	// dprintf(1, "strcmp : %i LUI\n", strcmp("text", "text"));
 	// dprintf(1, "strcmp : %i MOI\n", ft_strcmp("text", "test"));
 	// dprintf(1, "strcmp : %i LUI\n", strcmp("text", "test"));
-	// str3 = ft_strdup("str");
-	// str2 = malloc(4);
-	// ft_strcpy(str2, str3);
-	// dprintf(1, "str2 : %s has length = %zu\n", str2, ft_strlen(str2));
-	// dprintf(1, "str3 : %s has length = %zu\n", str3, ft_strlen(str3));
-	// free(str3);
-	// free(str2);
+	str3 = ft_strdup("str");
+	str2 = malloc(4);
+	ft_strcpy(str2, str3);
+	dprintf(1, "str2 : %s has length = %zu\n", str2, ft_strlen(str2));
+	dprintf(1, "str3 : %s has length = %zu\n", str3, ft_strlen(str3));
 	// str2 = strdup("banana\n");
 	// dprintf(1, "str2 : %shas length = %zu\n", str2, ft_strlen(str2));
-	// ft_list_push_front(&lst, (void *)str3);
-	// dprintf(1, "DATA : %s\n",lst->data);
-	// dprintf(1, "%p\n",lst);
-	// str3 = strdup("str1");
-	// ft_list_push_front(&lst, (void *)str3);
-	// dprintf(1, "DATA : %s\n",lst->data);
-	// dprintf(1, "%p\n",lst);
-	// str3 = strdup("str2");
-	// ft_list_push_front(&lst, (void *)str3);
-	// dprintf(1, "DATA : %s\n",lst->data);
-	// dprintf(1, "%p\n",lst);
+	ft_list_push_front(&lst, (void *)str3);
+	dprintf(1, "DATA : %s\n",lst->data);
+	dprintf(1, "%p\n",lst);
+	str3 = strdup("str1");
+	ft_list_push_front(&lst, (void *)str3);
+	dprintf(1, "DATA : %s\n",lst->data);
+	dprintf(1, "DATA next: %s\n",lst->next->data);
+	dprintf(1, "%p\n",lst);
+	str3 = strdup("str2");
+	ft_list_push_front(&lst, (void *)str3);
+	dprintf(1, "DATA : %s\n",lst->data);
+	dprintf(1, "%p\n",lst);
 	// str3 = strdup("str3");
 	// ft_list_push_front(&lst, (void *)str3);
 	// dprintf(1, "DATA : %s\n",lst->data);
@@ -77,7 +76,7 @@ int		main(void)
 	// dprintf(1, "DATA : %s\n",lst->data);
 	// dprintf(1, "%p\n",lst);
 	// dprintf(1, "number of maillon = %d\n", ft_list_size(lst));
-	// ft_list_sort(&lst, ft_strcmp);
+	ft_list_sort(&lst, ft_strcmp);
 	// dprintf(1,"\nSort lst");
 	// temp = lst;
 	// while (temp)
@@ -135,14 +134,14 @@ int		main(void)
 	// 	dprintf(1, "\n%s",temp->data);
 	// 	temp = temp->next;
 	// }
-	dprintf(1, "!!!!!   WRITE   !!!!!\n");
-	dprintf(1, "RET write = |%d|\n", i = write(fdwrite, "THIS IS BANANAS\n", 16));
-	dprintf(1, "RET write = |%d|\n", i = write(1, "THIS IS BANANAS\n", 16));
-	dprintf(1, "!!!!!   READ    !!!!!\n");
-	str = malloc(sizeof(char) * 21);
-	dprintf(1, "RET read = |%d|\n", i = ft_read(fdread, str, 16));
-	str[i] = '\0';
-	dprintf(1, "str is |%s|\n", str);
+	// dprintf(1, "!!!!!   WRITE   !!!!!\n");
+	// dprintf(1, "RET write = |%d|\n", i = write(fdwrite, "THIS IS BANANAS\n", 16));
+	// dprintf(1, "RET write = |%d|\n", i = write(1, "THIS IS BANANAS\n", 16));
+	// dprintf(1, "!!!!!   READ    !!!!!\n");
+	// str = malloc(sizeof(char) * 21);
+	// dprintf(1, "RET read = |%d|\n", i = ft_read(fdread, str, 16));
+	// str[i] = '\0';
+	// dprintf(1, "str is |%s|\n", str);
 	// dprintf(1, "!!!!!  STRLEN   !!!!!\n");
 	// dprintf(1, "str : %shas length = %zu\n", str, ft_strlen(str));
 	// dprintf(1, "!!!!!  STRCMP   !!!!!\n");

@@ -11,15 +11,14 @@ _ft_strcpy:
 	je		.exit
 
 .loop:
-	mov		r13, [rsi + r12]
-	mov		[rdi + r12], r13
+	mov		r13b, BYTE [rsi + r12]
+	mov		[rdi + r12], r13b
 	inc		r12
 	cmp		byte [rsi + r12], 0
 	jne		.loop
 
 .exit:
-	mov		r13, [rsi + r12]
-	mov		[rdi + r12], r13
+	mov		[rdi + r12], byte 0
 	mov		rax, rdi
 	pop		r13
 	pop		r12

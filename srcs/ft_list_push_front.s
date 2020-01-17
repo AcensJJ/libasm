@@ -5,31 +5,40 @@ extern _malloc
 section .text
 
 _ft_list_push_front:
+	push	rbp
+	mov		rbp, rsp
 	cmp		rdi, 0
-	je		_exit_error
+	je		_exit
 	cmp		rsi, 0
-	je		_exit_error
-	push	r12
-	mov		r12, rdi
+	je		_exit
+	push	rdi
+	push	rsi
 	mov		rdi, 16
 	call	_malloc
+	pop		rdx
+	pop		rdi
 	cmp		rax, 0
-	je		_ret_exit_error_malloc
+	je		_exit
+	mov		[rax], rdx
+	cmp		[rdi], byte 0
+	je		_push_front_null
+	
 
 _push_front:
-	push	r13
-	mov		r13, [r12]
-	mov		[rax + 0] , rsi
-	mov		[rax + 8] , r13
-	mov		[r12], rax
+	mov		rsi, [rdi]
+	mov		[rax + 8] , rsi
+	mov		[rdi], rax
+	pop		rsp
+	leave
+	ret
+
+_push_front_null:
+	mov		[rax + 8] , byte 0
+	mov		[rdi], rax
+	pop		rsp
+	leave
+	ret
 
 _exit:
-	pop		r13
-
-_ret_exit_error_malloc:
-	pop		r12
-
-_exit_error:
-	xor		rax, rax
-	ret
+	pop		rsp
 	
