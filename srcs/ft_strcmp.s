@@ -9,26 +9,28 @@ _ft_strcmp:
 	xor		r12, r12
 	xor		r13, r13
 	xor		r14, r14
-	mov		r13, [rsi + r12]
-	cmp		[rdi + r12], r13
+	movzx	r14, BYTE [rdi + r12]
+	movzx	r13, BYTE [rsi + r12]
+	cmp		r14, r13
 	jne		.exit
 	cmp		byte [rsi], 0
 	je		.exit
 
 .loop:
 	inc		r12
-	mov		r13, [rsi + r12]
-	cmp		[rdi + r12], r13
+	movzx	r14, BYTE [rdi + r12]
+	movzx	r13, BYTE [rsi + r12]
+	cmp		r14, r13
 	jne		.exit
 	cmp		byte [rsi + r12], 0
 	jne		.loop
 
 .exit:
-	movzx	r14, [rdi + r12]
-	movzx	r13, [rsi + r12]
+	movzx	r14, BYTE [rdi + r12]
+	movzx	r13, BYTE [rsi + r12]
 	sub		r14, r13
 	mov		rax, r14
 	pop		r14
 	pop		r13
 	pop		r12
-	ret
+	ret 

@@ -23,19 +23,22 @@ _ft_atoi_base:
 	push	r10        ;tmp1
     push	rbx        ;tmp2
 	xor		r10, r10
-	xor		r13, r13
+	mov		r13, -1
 	jmp		_check_base
 
 _check_doublon:
 	cmp		[r9 + rbx], byte 0
 	je		_check_base
-	mov		r10, [r9 + rbx]
-	cmp		[r9 + r13 - 1], r10
+	mov		r10b, byte [r9 + rbx]
+	mov		r14b, byte [r9 + r13]
+	cmp		r14b, r10b
 	je		_exit_error2
+	mov		r14, 0
 	inc		rbx
 	jmp		_check_doublon
 
 _check_base:
+	inc		r13
 	cmp		byte [r9 + r13], 0
 	je		_skip_init
 	cmp		byte [r9 + r13], 127
@@ -46,13 +49,13 @@ _check_base:
 	je		_exit_error2
 	cmp		byte [r9 + r13], 32
 	jl		_exit_error2
-	inc		r13
 	mov		rbx, r13
+	inc		rbx
 	jmp		_check_doublon
 
 _skip_init:
 	xor		r13, r13
-	jmp		_skip_init
+	jmp		_skip
 
 _skip_space:
 	inc		r13
@@ -76,7 +79,7 @@ _skip_more:
 
 _skip_many:
 	inc		r13
-	imul		r15, -1
+	imul	r15, -1
 
 _sign:
 	cmp		byte [r8 + r13], 43
@@ -111,7 +114,7 @@ _nb:
 	jmp		_value_nb
 
 _exit:
-	imu		 r14, r15
+	imul	r14, r15
     mov		rax, r14
     pop		rbx
     pop		r10

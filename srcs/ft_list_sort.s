@@ -21,7 +21,7 @@ _ft_list_sort:
 _loop_before:
 	call	r13
 	cmp		rax, 0
-	jhe		_loop_after
+	jge		_loop_after
 
 _push_front:
 	mov		r14, [rsi + 8]

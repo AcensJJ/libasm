@@ -26,7 +26,7 @@ _ft_list_remove_if:
 
 _push_front:
 	mov		r14, [rdi + 8]
-	mov		[rdi + 8], 0
+	mov		qword [rdi + 8], 0
 	call	rcx
 	call	_free;
 	mov		rdi, r14
@@ -38,7 +38,7 @@ _setup:
 
 _free_lst:
 	mov		r14, [rdi + 8]
-	mov		13, r14
+	mov		r13, r14
 	call	rcx
 	call	_free;
 	mov		rdi, r14
