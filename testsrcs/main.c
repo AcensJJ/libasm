@@ -6,7 +6,7 @@
 /*   By: jacens <jacens@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/17 12:15:46 by jacens       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 15:18:29 by jacens      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 15:23:50 by jacens      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,15 +27,15 @@ int		balec2(char *s1, char *s2)
 
 int		main(void)
 {
-	char	*str;
+	// char	*str;
 	// char	*str2;
 	// char	*str4;
 	// char	*str5;
 	// t_list	*lst;
 	// char 	*str3;
-	int 	i;
-	int 	fdread = open("test", O_RDONLY);
-	int 	fdwrite = open("test", O_WRONLY);
+	// int 	i;
+	// int 	fdread = open("test", O_RDONLY);
+	// int 	fdwrite = open("test", O_WRONLY);
 	// t_list	*temp;
 	
 	// dprintf(1, "strcmp : %i MOI\n", ft_strcmp("test", "text"));

@@ -21,7 +21,7 @@ all: $(NAME)
 # Rule to build Nm
 $(NAME):  $(OBJ) ART
 	@ar rcs $(NAME) $(OBJ)
-	@echo "\033[0;32m[UPDATE] \033[0m \033[1;30m CREATED:\033[0m \033 \033[0m \033[0;36m libasm.a\033[0m \033"
+	@echo "\033[0;32m[UPDATE] \033[0m \033[1;30m CREATED:\033[0m \033 \033[0m \033[0;36m libasm.a\033[0m" $(shell ls -la | grep libasm | rev | cut -d " " -f 4 | rev) $(shell ls -la | grep libasm | rev | cut -d " " -f 3 | rev) $(shell ls -la | grep libasm | rev | cut -d " " -f 2 | rev)
 
 #nasm 64 bits
 %.o: %.s
