@@ -6,7 +6,7 @@
 /*   By: jacens <jacens@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/17 12:15:46 by jacens       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/18 11:59:05 by jacens      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/18 13:50:02 by jacens      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -57,17 +57,17 @@ int		main(void)
 	ft_list_push_front(&lst, (void *)str3);
 	// dprintf(1, "DATA : %s\n",lst->data);
 	// dprintf(1, "%p\n",lst);
-	str3 = strdup("9");
-	ft_list_push_front(&lst, (void *)str3);
+	// str3 = strdup("9");
+	// ft_list_push_front(&lst, (void *)str3);
 	// dprintf(1, "DATA : %s\n",lst->data);
 	// dprintf(1, "DATA next: %s\n",lst->next->data);
 	// dprintf(1, "%p\n",lst);
-	str3 = strdup("1");
-	ft_list_push_front(&lst, (void *)str3);
+	// str3 = strdup("1");
+	// ft_list_push_front(&lst, (void *)str3);
 	// dprintf(1, "DATA : %s\n",lst->data);
 	// dprintf(1, "%p\n",lst);
-	str3 = strdup("4");
-	ft_list_push_front(&lst, (void *)str3);
+	// str3 = strdup("4");
+	// ft_list_push_front(&lst, (void *)str3);
 	// dprintf(1, "DATA : %s\n",lst->data);
 	// dprintf(1, "%p\n",lst);
 	// str3 = strdup("str4");
@@ -79,15 +79,17 @@ int		main(void)
 	// dprintf(1, "DATA : %s\n",lst->data);
 	// dprintf(1, "%p\n",lst);
 	// dprintf(1, "number of maillon = %d\n", ft_list_size(lst));
-	dprintf(1, "AV\nDATA      1: %s\n",lst->data);
-	dprintf(1, "DATA next 2: %s\n",lst->next->data);
-	dprintf(1, "DATA next 3: %s\n",lst->next->next->data);
-	dprintf(1, "DATA next 4: %s\n",lst->next->next->next->data);
-	ft_list_sort(&lst, ft_strcmp);
-	dprintf(1, "\nAP\nDATA      1: %s\n",lst->data);
-	dprintf(1, "DATA next 2: %s\n",lst->next->data);
-	dprintf(1, "DATA next 3: %s\n",lst->next->next->data);
-	dprintf(1, "DATA next 4: %s\n",lst->next->next->next->data);
+
+	// dprintf(1, "AV\nDATA      1: %s\n",lst->data);
+	// dprintf(1, "DATA next 2: %s\n",lst->next->data);
+	// dprintf(1, "DATA next 3: %s\n",lst->next->next->data);
+	// dprintf(1, "DATA next 4: %s\n",lst->next->next->next->data);
+	// ft_list_sort(&lst, ft_strcmp);
+	// dprintf(1, "\nAP\nDATA      1: %s\n",lst->data);
+	// dprintf(1, "DATA next 2: %s\n",lst->next->data);
+	// dprintf(1, "DATA next 3: %s\n",lst->next->next->data);
+	// dprintf(1, "DATA next 4: %s\n",lst->next->next->next->data);
+	ft_list_remove_if(&lst,	"8", ft_strcmp, balec);
 
 	// dprintf(1,"\nSort lst");
 	// temp = lst;
