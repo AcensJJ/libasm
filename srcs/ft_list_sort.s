@@ -36,16 +36,17 @@ _loop_before:
 	cmp		rax, 0
 	jle		_loop_after
 
-_push_front:						;bad
+_push_front:
 	cmp		[rsi + 8], byte 0
 	je		_push_front_null_next
-	mov		r14, [rsi + 8]
-	mov		[rdi + 8], r14
-	mov		[rsi + 8], rdi
-	mov		[r12], rsi
-	mov		rdi, [rdi]
-	mov		rsi, [rdi + 8]
-	jmp		_loop_before
+	mov		r14, [rsi + 8]		; tmp next
+	mov		[rdi + 8], r14		; actu -> -> next -> next
+	mov		[rsi + 8], rdi		; next -> actu
+	mov		[r12], rsi			; reset beg list **
+	mov		rdi, rsi
+	mov		rsi, [rsi + 8]
+	mov		r15, rdi
+	jmp		_loop_after
 
 _push_front_null_next:
 	mov		[rdi + 8], byte 0
@@ -83,7 +84,7 @@ _loop_swap:
 
 _reset:
 	mov		rdi, [r12]
-	mov		rsi, [r12 + 8]
+	mov		rsi, [rdi + 8]
 	jmp		_loop_before
 
 _loop_swap_null_next:
