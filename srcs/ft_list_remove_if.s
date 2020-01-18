@@ -18,6 +18,7 @@ _ft_list_remove_if:
 	push	r12			;list
 	push	r13			;bef_lst
 	push	r14			;next
+	xor		r14, r14
 	push	r15			;tmp
     mov		r12, rdi
 	mov		rdi, [rdi]
@@ -45,7 +46,7 @@ _push_front:
 _setup:
 	mov		r13, rdi
 	cmp		[rdi + 8], byte 0
-	je		_verif_last_exit
+	je		_exit
 	jmp		_loop
 
 _free_lst:
