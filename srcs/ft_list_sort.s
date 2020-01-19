@@ -88,9 +88,10 @@ _reset:
 	jmp		_loop_before
 
 _loop_swap_null_next:
-	mov		[rdi + 8], byte 0	; pas de next
-	mov		[rsi + 8], rdi		; next vers actu
-	mov		[r15 + 8], rsi		; av vers actu
+	mov		r14, [rsi + 8] 		;tmp -> (next)
+	mov		[rdi + 8], r14		;actu->next->tmp
+	mov		[rsi + 8], rdi		;actu->next -> next->actu
+	mov		[r15 + 8], rsi		; av->next->actu->tmp
 	jmp		_reset
 
 _exit:

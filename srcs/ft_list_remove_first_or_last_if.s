@@ -97,11 +97,12 @@ _verif_last_exit:
 	jmp		_set_val
 
 _push_front_null:
+	mov		r15, [rdi + 8]
 	mov		rdi, [rdi]
 	call	rcx
 	mov		rdi, [r12]
 	call	_free
-	mov		[r12], byte 0
+	mov		[r12], r15
 
 _set_val:
 	mov		rdi, r12
