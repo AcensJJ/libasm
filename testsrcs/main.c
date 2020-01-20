@@ -6,7 +6,7 @@
 /*   By: jacens <jacens@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/17 12:15:46 by jacens       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/19 15:06:33 by jacens      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 17:19:00 by jacens      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -130,8 +130,8 @@ int		main(void)
 	printf("%d\n", ft_atoi_base("ggg", "0123456789abcdefg"));
 
 	printf("\n~Test strcmp~\n");
-	s3 = strdup("oOoOoOoOoOo8OoOo");
-	const char *s5 = strdup("oOoOoOoOoOoOoOo");
+	s3 = ft_strdup("oOoOoOoOoOo8OoOo");
+	const char *s5 = ft_strdup("oOoOoOoOoOoOoOo");
 	printf("%d", strcmp(s3, s5));
 	printf(" | %d\n", ft_strcmp(s3, s5));
 
@@ -159,15 +159,15 @@ int		main(void)
 	ft_print_data(*deb);
 
 	printf("\n~Test lst push front~\n");
-	str3 = strdup("1");
+	str3 = ft_strdup("1");
 	ft_list_push_front(&lst, (void *)str3);
-	str3 = strdup("5");
+	str3 = ft_strdup("5");
 	ft_list_push_front(&lst, (void *)str3);
-	str3 = strdup("3");
+	str3 = ft_strdup("3");
 	ft_list_push_front(&lst, (void *)str3);
-	str3 = strdup("4");
+	str3 = ft_strdup("4");
 	ft_list_push_front(&lst, (void *)str3);
-	str3 = strdup("2");
+	str3 = ft_strdup("2");
 	ft_list_push_front(&lst, (void *)str3);
 	temp = lst;
 	while (temp)
