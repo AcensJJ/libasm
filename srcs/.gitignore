@@ -1,0 +1,13 @@
+ft_atoi_base.o
+ft_list_push_front.o
+ft_list_remove_first_or_last_if.o
+ft_list_remove_if.o
+ft_list_size.o
+ft_list_sort.o
+ft_printf_data.o
+ft_read.o
+ft_strcmp.o
+ft_strcpy.o
+ft_strdup.o
+ft_strlen.o
+ft_write.o
