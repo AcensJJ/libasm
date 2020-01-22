@@ -18,10 +18,10 @@ _ft_strdup:
     je		.exit
     mov		rdi, rax
     mov		rsi, r12
-    pop		rax
     call	_ft_strcpy
 
 .exit:
+    pop		rax
     pop		r12
 	leave
 	ret
