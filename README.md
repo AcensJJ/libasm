@@ -2,7 +2,7 @@
 
 ![Capture](https://user-images.githubusercontent.com/45235527/96904473-76c26280-1497-11eb-808c-92feeb08040f.PNG)
 
-> Description
+Description
 
 Le but de ce projet est de se familiariser avec le langage assembleur
 
