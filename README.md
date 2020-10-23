@@ -2,7 +2,7 @@
 
 ![Capture](https://user-images.githubusercontent.com/45235527/96904473-76c26280-1497-11eb-808c-92feeb08040f.PNG)
 
-Description
+> Description
 
 Le but de ce projet est de se familiariser avec le langage assembleur
 
@@ -26,11 +26,13 @@ Le but de ce projet est de se familiariser avec le langage assembleur
 
 Vous pouvez réecrire les fonctions suivantes en asm. La liste chainée utilisera la structure suivante :
 
+```
 typedef struct s_list
 {
   void *data;
   struct s_list *next;
 } t_list;
+```
 
 - ft_atoi_base (Comme celui de piscine)
 - ft_list_push_front (Comme celui de piscine)
