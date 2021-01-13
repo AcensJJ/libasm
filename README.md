@@ -1,6 +1,6 @@
 # libasm
 
-![Capture](https://user-images.githubusercontent.com/45235527/96904473-76c26280-1497-11eb-808c-92feeb08040f.PNG)
+ <img src="https://user-images.githubusercontent.com/45235527/96904473-76c26280-1497-11eb-808c-92feeb08040f.PNG" width="250" height="200" />
 
 <strong>Description</strong>
 
